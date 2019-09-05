@@ -15,22 +15,34 @@ global:
     # https://mapzen.com/documentation/overview/#developer-accounts-and-api-keys
     sdk_api_key: '3eqm2_bfTNGZ85ar20fVyA'     # set this value to your Mapzen API key
 
-    black_color:                  [0.440,0.440,0.440]
-    dark_color:                   [0.410,0.410,0.410]
-    mid_color:                    [0.380,0.380,0.380]
-    midlight_color:               [0.350,0.350,0.350]
-    extralight_color:             [0.320,0.320,0.320]
-    light_color:                  [0.300,0.300,0.300]
-    lighter_color:                [0.290,0.290,0.290]
-    lightest_color:               [0.260,0.260,0.260]
-    ultralight_color:             [0.230,0.230,0.230]
-    offwhite_color:               [0.190,0.190,0.190]
-    white_color:                  [0.145,0.145,0.145]
+    # black_color:                  [0.820,0.812,0.812]
+    # dark_color:                   [0.840,0.832,0.832]
+    # mid_color:                    [0.860,0.851,0.851]
+    # midlight_color:               [0.880,0.871,0.871]
+    # extralight_color:             [0.900,0.891,0.891]
+    # light_color:                  [0.920,0.911,0.911]
+    # lighter_color:                [0.950,0.941,0.941]
+    # lightest_color:               [0.970,0.960,0.960]
+    # ultralight_color:             [0.980,0.970,0.970]
+    # offwhite_color:               [0.990,0.980,0.980]
+    # white_color:                  [1.000,1.000,1.000]
 
-    tunnel_color:                 [0.190,0.190,0.190]
+    black_color:                  [1.000,1.000,1.000]
+    dark_color:                   [0.990,0.980,0.980]
+    mid_color:                    [0.980,0.970,0.970]
+    midlight_color:               [0.970,0.960,0.960]
+    extralight_color:             [0.950,0.941,0.941]
+    light_color:                  [0.920,0.911,0.911]
+    lighter_color:                [0.900,0.891,0.891]
+    lightest_color:               [0.880,0.871,0.871]
+    ultralight_color:             [0.860,0.851,0.851]
+    offwhite_color:               [0.840,0.832,0.832]
+    white_color:                  [0.820,0.812,0.812]
 
-    roads_text_fill:              [0.700,0.700,0.700]
-    roads_text_stroke:            [0.224,0.224,0.224]
+    tunnel_color:                 [0.980,0.970,0.970]
+
+    roads_text_fill:              [0.660,0.641,0.634]
+    roads_text_stroke:            [0.920,0.911,0.911]
 
     text_font_family: 'Orbitron'
 
@@ -190,7 +202,7 @@ fonts:
 
 scene:
     background:
-        color: [0.224,0.224,0.224]
+        color: [0.820,0.812,0.812]
 
 sources:
     # mapzen:
@@ -228,14 +240,14 @@ layers:
         draw:
             polygons:
                 order: global.feature_order
-                color: [0.224,0.224,0.224]
+                color: [0.820,0.812,0.812]
 
     water:
         data: { source: mapzen, layer: water }
         draw:
             polygons:
                 order: global.feature_order
-                color: [0.145,0.145,0.145]
+                color: [0.690,0.671,0.663]
 
         lakes:
             filter:
@@ -261,13 +273,13 @@ layers:
                     - { $zoom: { min: 15 } }
             draw:
                 polygons:
-                    color: [0.145,0.145,0.145]
+                    color: [0.690,0.671,0.663]
 
         other-water-areas:
             filter: { not: { kind: [ocean, lake, water, reservoir] }, $zoom: { min: 11 }, area: { min: 100 } }
             draw:
                 polygons:
-                    color: [0.145,0.145,0.145]
+                    color: [0.690,0.671,0.663]
 
     roads:
         data: { source: mapzen, layer: roads }
@@ -851,7 +863,7 @@ layers:
                     - protect_class: ['2','3','5']
             draw:
                 polygons:
-                    color: [0.200,0.200,0.200]
+                    color: [0.769,0.761,0.761]
                     visible: true
             us_national_park:
                 # yosemite national park, death valley national park, grand canyon national park
@@ -861,7 +873,7 @@ layers:
                         - protect_class: ['2','3','5']
                 draw:
                     polygons:
-                        color: [0.200,0.200,0.200]
+                        color: [0.769,0.761,0.761]
                         visible: true
 
         conservation:
@@ -871,7 +883,7 @@ layers:
                 not: { protect_class: ['2','3','5']}
             draw:
                 polygons:
-                    color: [0.200,0.200,0.200]
+                    color: [0.851,0.843,0.843]
                     visible: true
 
         national_forest_level_6:
@@ -883,14 +895,14 @@ layers:
                     - operator: ['United States Forest Service']
             draw:
                 polygons:
-                    color: [0.200,0.200,0.200]
+                    color: [0.851,0.843,0.843]
                     visible: true
 
         forest-landcover:
             filter: { kind: [forest, natural_forest, wood, natural_wood, natural_park], $zoom: { min: 10 }, not: { operator: "United States Forest Service" } }
             draw:
                 polygons:
-                    color: [0.200,0.200,0.200]
+                    color: [0.851,0.843,0.843]
                     visible: true
 
         parks-and-national-forests-not-national-park:
@@ -904,7 +916,7 @@ layers:
             # default for national forests and more?
             draw:
                 polygons:
-                    color: [0.200,0.200,0.200]
+                    color: [0.769,0.761,0.761]
                     visible: true
             national_park:
                 #filter: function() { return feature.name && (feature.name.indexOf('National Park') > -1); }
@@ -914,7 +926,7 @@ layers:
                         - not: [ protect_class: ['2','3','5','6'], operator: [ "United States National Park Service"] ]
                 draw:
                     polygons:
-                        color: [0.200,0.200,0.200]
+                        color: [0.769,0.761,0.761]
                         visible: true
 
         runway:
@@ -933,7 +945,7 @@ layers:
             polygons:
                 visible: false
                 order: 438
-                color: [0.259,0.259,0.259]
+                color: [0.851,0.843,0.843]
 
         footprints:
             filter:
@@ -1092,7 +1104,7 @@ layers:
                     text_source: global.ux_language_text_source
                     font:
                         fill: [0.450,0.450,0.450]
-                        stroke: { color: [0.224,0.224,0.224], width: 4px }
+                        stroke: { color: [0.820,0.812,0.812], width: 4px }
             country-z2-3:
                 filter:
                     $zoom: [2,3]
@@ -1200,7 +1212,7 @@ layers:
                         size: 11px
                         weight: normal
                         fill: [0.400,0.400,0.400]
-                        stroke: { color: [0.224,0.224,0.224], width: 4px }
+                        stroke: { color: [0.820,0.812,0.812], width: 4px }
             region-z4:
                 filter:
                     $zoom: [4]
@@ -1279,7 +1291,7 @@ layers:
                     buffer: 42px
                     font:
                         size: [[5,9px],[8,10px],[12,11px]]
-                        stroke: { color: [0.224,0.224,0.224], width: 5px }
+                        stroke: { color: [0.820,0.812,0.812], width: 5px }
 
             # _text_early:
             #     filter: { $zoom: { max: 11 } }
@@ -1445,7 +1457,7 @@ layers:
                         size: [[11, 9px], [12, 10px], [13, 12px], [14, 16px], [16, 24px]]
                         weight: normal
                         transform: uppercase
-                        stroke: { color: [0.224,0.224,0.224], width: [[12, 4px], [13, 6px], [15, 8px]] }
+                        stroke: { color: [0.820,0.812,0.812], width: [[12, 4px], [13, 6px], [15, 8px]] }
 
             z13-up:
                 filter:
