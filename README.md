@@ -1,6 +1,6 @@
-### xyz studio dark-style
+### xyz studio light-style
 
-View the [xyz studio dark-style map](https://sensescape.github.io/xyz-studio-dark/).
+View the [xyz studio light-style map](https://sensescape.github.io/xyz-studio-light/).
 
 [https://explore.xyz.here.com](https://explore.xyz.here.com)
 
